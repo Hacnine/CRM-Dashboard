@@ -10,7 +10,7 @@ const Sidebar = () => {
                 <MdDashboard className=' text-2xl'/>
                 <h1 className="text-xl font-bold">Dashboard</h1>
             </div>
-            <ul className="mt-6 px-2">
+            <ul className="mt-6 px-2 h-[70%]">
                 <li className="flex items-center justify-between p-4 text-gray-600  hover:bg-blue-600 hover:text-gray-100 rounded-md my-1">
                     <div className='flex items-center'>
                         <FiHome className="mr-4" />
@@ -52,7 +52,7 @@ const Sidebar = () => {
 
             </ul>
 
-            <div className=" fixed bottom-0 flex items-center justify-between w-64 p-4 text-gray-600  hover:bg-blue-600 hover:text-gray-100 rounded-md my-1 border-t ">
+            <div className=" flex items-center justify-between w-64 p-4 text-gray-600  hover:bg-blue-600 hover:text-gray-100 rounded-md my-1 border-t ">
                 <div className='flex items-center gap-3'>
                     <img src="/light.jpg" className="size-10 rounded-full" alt="" />
                     <div>
