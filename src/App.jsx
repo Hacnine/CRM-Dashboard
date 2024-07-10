@@ -13,7 +13,7 @@ function App() {
       <Sidebar />
       <div className="flex-1 bg-gray-100">
         <Header />
-        {/* <Statistics /> */}
+        <Statistics />
         {/* <CustomerTable /> */}
       </div>
     </div>
