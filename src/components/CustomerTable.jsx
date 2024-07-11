@@ -5,10 +5,16 @@ import useFetchData from '../context/useFetchData';
 
 const CustomerTable = () => {
 
-  const [productAmount, setProductAmount] = useState(10)
-  useFetchData(`https://dummyjson.com/products?limit=10&skip=${productAmount}&select=title,price,rating,brand,weight`);
+  const [skip, setSkip] = useState(10)
+  const [limit, setLimit] = useState(10)
+
+  const [dynamicAmount, setDynamicAmount] = useState(10)
+
+  useFetchData(`https://dummyjson.com/products?limit=${limit}&skip=${skip}&select=title,price,rating,brand,weight`);
   const { data, loading, error } = useDataContext();
-console.log(data)
+  console.log('skip', skip)
+  console.log('limit', limit)
+
   const totalEntries = 100;
   const entriesPerPage = 10;
   const paginate = (pageNumber) => {
@@ -48,7 +54,7 @@ console.log(data)
           )}
         </tbody>
       </table>
-      <Pagination totalEntries={totalEntries} entriesPerPage={entriesPerPage} paginate={paginate} setProductAmount={setProductAmount} productAmount={productAmount} />
+      <Pagination totalEntries={totalEntries} entriesPerPage={entriesPerPage} paginate={paginate} setSkip={setSkip} skip={skip} limit={limit} setLimit={setLimit} dynamicAmount={dynamicAmount} setDynamicAmount={setDynamicAmount}/>
 
     </div>
   );
