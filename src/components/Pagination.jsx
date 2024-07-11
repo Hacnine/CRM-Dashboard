@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
-const Pagination = ({ totalEntries, entriesPerPage, paginate }) => {
+const Pagination = ({ totalEntries, entriesPerPage, paginate, setProductAmount, productAmount }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(totalEntries / entriesPerPage);
 
@@ -14,6 +14,14 @@ const Pagination = ({ totalEntries, entriesPerPage, paginate }) => {
     setCurrentPage(page);
     paginate(page);
   };
+
+  const increaseProductAmount = () => {
+    setProductAmount(productAmount+10)
+  }
+
+  const decreaseProductAmount = () => {
+    setProductAmount(productAmount-10)
+  }
 
   const renderPageNumbers = () => {
     return pageNumbers.map((number) => {
@@ -39,11 +47,11 @@ const Pagination = ({ totalEntries, entriesPerPage, paginate }) => {
         Showing data 1 to {entriesPerPage} of {totalEntries} entries
       </span>
       <ul className="flex items-center">
-        <li className={`px-2 py-1 mx-1 border rounded ${currentPage === 1 ? 'bg-gray-200 cursor-not-allowed' : 'bg-gray-100 text-gray-700 cursor-pointer'}`} onClick={() => handleClick(currentPage - 1)}>
+        <li className={`px-2 py-1 mx-1 border rounded ${currentPage === 1 ? 'bg-gray-200 cursor-not-allowed' : 'bg-gray-100 text-gray-700 cursor-pointer'}`} onClick={() => {handleClick(currentPage - 1), decreaseProductAmount()}}>
           <FiChevronLeft />
         </li>
-        {renderPageNumbers()}
-        <li className={`px-2 py-1 mx-1 border rounded ${currentPage === totalPages ? 'bg-gray-200 cursor-not-allowed' : 'bg-gray-100 text-gray-700 cursor-pointer'}`} onClick={() => handleClick(currentPage + 1)}>
+        {/* {renderPageNumbers()} */}
+        <li className={`px-2 py-1 mx-1 border rounded ${currentPage === totalPages ? 'bg-gray-200 cursor-not-allowed' : 'bg-gray-100 text-gray-700 cursor-pointer'}`} onClick={() => {handleClick(currentPage + 1), increaseProductAmount()}}>
           <FiChevronRight />
         </li>
       </ul>
